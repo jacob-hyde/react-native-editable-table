@@ -1,0 +1,6 @@
+example
+.*
+coverage
+index.js
+android/
+ios/
