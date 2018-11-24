@@ -11,7 +11,7 @@ npm install react-native-editable-list --save
 | ------------ | ------------ |
 
 
-###Usage
+### Usage
 
 ```javascript
 import EditableTable from 'react-native-editable-table';
@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
 ```
 Check out  [index.js](https://github.com/jacob-hyde/react-native-editable-table/blob/master/index.js "index.js")
 
-###Properties
+### Properties
+
 |  Prop |  Default | Type  | Description  |
 | ------------ | ------------ | ------------ | ------------ |
 | Style  | - | `object` | Specify the style of the Table, eg. width, height...  |
