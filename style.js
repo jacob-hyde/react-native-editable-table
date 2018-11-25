@@ -9,12 +9,11 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     backgroundColor: '#fff',
     elevation: 1,
-    borderWidth: 1,
     borderRadius: 5,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
-    shadowRadius: 2,
+    shadowRadius: 2
   },
   cell: {
     flex: 1,
@@ -22,7 +21,7 @@ const styles = StyleSheet.create({
     minHeight: 40,
     padding: 2,
     alignItems: 'flex-end',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   cellText: {
     color: '#000'
@@ -38,7 +37,7 @@ const styles = StyleSheet.create({
     paddingRight: 10
   },
   column: {
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   cellInput: {
     width: '100%',

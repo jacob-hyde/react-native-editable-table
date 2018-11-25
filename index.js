@@ -31,29 +31,16 @@ class editabletable extends Component{
         </Text>
         <EditableTable
           columns={[
-            {value: 'Col 1', input: 'c1', width: 20, sortable: true, defaultSort: 'ASC', reorder: true},
-            {value: 'Col 2', input: 'c2', width: 20, sortable: false, editable: true, reorder: true},
-            {value: 'Col 3', input: 'c3', width: 30, sortable: false, editable: true},
-            {value: 'Col 4', input: 'c4', width: 30, sortable: true},
+            {value: 'Col 1', input: 'c1', width: 25, sortable: true, defaultSort: 'ASC', reorder: true},
+            {value: 'Col 2', input: 'c2', width: 25, sortable: false, editable: true, reorder: true},
+            {value: 'Col 3', input: 'c3', width: 25, sortable: false, editable: true},
+            {value: 'Col 4', input: 'c4', width: 25, sortable: true},
+            {value: 'Col 5', input: 'c5', width: 25, sortable: true}
           ]}
           values={[
-            [10, 'test', 23, ':)'],
-            [20, {value: 'Edit Me', editable: true}, {value: 45}, 'haha'],
-            [30, {value: 'Extra Editable Rows', span: 2}, 'Dang'],
-            [20, {value: 'Edit Me', editable: true}, {value: 45}, 'haha'],
-            [20, {value: 'Edit Me', editable: true}, {value: 45}, 'haha'],
-            [20, {value: 'Edit Me', editable: true}, {value: 45}, 'haha'],
-            [20, {value: 'Edit Me', editable: true}, {value: 45}, 'haha'],
-            [20, {value: 'Edit Me', editable: true}, {value: 45}, 'haha'],
-            [10, 'test', 23, ':)'],
-            [10, 'test', 23, ':)'],
-            [10, 'test', 23, ':)'],
-            [10, 'test', 23, ':)'],
-            [10, 'test', 23, ':)'],
-            [10, 'test', 23, ':)'],
-            [10, 'test', 23, ':)'],
-            [10, 'test', 23, ':)'],
-            [10, 'test', 23, ':)']
+            [10, 'test', 23, ':)', 'horizontal'],
+            [20, {value: 'Edit Me', editable: true}, {value: 45}, 'haha', 90],
+            [30, {value: 'Span Me', span: 2}, 'Dang', 'Column 5']
           ]}
           emptyRows={2}
           onCellChange={(value, column, row, unique_id) => {
