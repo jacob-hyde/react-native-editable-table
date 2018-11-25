@@ -3,7 +3,6 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
   PanResponder,
   SafeAreaView
 } from 'react-native';
@@ -34,7 +33,7 @@ class editabletable extends Component{
             {value: 'Col 1', input: 'c1', width: 20, sortable: true, defaultSort: 'ASC', reorder: true},
             {value: 'Col 2', input: 'c2', width: 20, sortable: false, editable: true, reorder: true},
             {value: 'Col 3', input: 'c3', width: 30, sortable: false, editable: true},
-            {value: 'Col 4', input: 'c4', width: 30, sortable: true},
+            {value: 'Col 4', input: 'c4', width: 30, sortable: true}
           ]}
           values={[
             [10, 'test', 23, ':)'],
@@ -61,7 +60,7 @@ class editabletable extends Component{
                         and unique_id: ${unique_id}`);
           }}
           onColumnChange={(value, oldVal, newVal) => {
-            console.log(`Column Change. Old Value: ${oldVal} New Value: ${newVal}`)
+            console.log(`Column Change. Old Value: ${oldVal} New Value: ${newVal}`);
           }}
           customStyles={{
 

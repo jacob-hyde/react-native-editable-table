@@ -11,8 +11,6 @@ import Style from './style';
 import Column from './lib/Column';
 import Cell from './lib/Cell';
 
-const SUPPORTED_ORIENTATIONS = ['portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right'];
-
 class EditableTable extends React.Component{
 
   constructor(props){
@@ -29,7 +27,7 @@ class EditableTable extends React.Component{
       sort: sortIndex !== undefined ? props.columns[sortIndex].defaultSort : null,
       sortColumnIndex: sortIndex !== undefined ? sortIndex : null,
       rows: props.values.length
-    }
+    };
 
 
     let columnWidths = props.columns.map(c => c.width);
@@ -44,18 +42,18 @@ class EditableTable extends React.Component{
         borders = this._createBorderStyles(i, columns.length);
       }
       return (
-              <Column
-                {...c}
-                key={c.input}
-                column={c}
-                index={i}
-                customStyles={this.props.customStyles}
-                borderStyle={borders}
-                onColumnChange={this.props.onColumnChange}
-                height={this.props.cellHeight}
-                width={this.state.widths[i]}
-              />
-            );
+        <Column
+          {...c}
+          key={c.input}
+          column={c}
+          index={i}
+          customStyles={this.props.customStyles}
+          borderStyle={borders}
+          onColumnChange={this.props.onColumnChange}
+          height={this.props.cellHeight}
+          width={this.state.widths[i]}
+        />
+      );
     });
   }
 
@@ -81,7 +79,7 @@ class EditableTable extends React.Component{
     return row.map((cell, colIndex) => {
       colIndex = colIndex + addColIndex;
       if (cell.hasOwnProperty('span')) {
-        addColIndex += cell.span-1;
+        addColIndex += cell.span - 1;
       }
       let borderStyle = {};
       if (this.props.borders) {
@@ -98,54 +96,54 @@ class EditableTable extends React.Component{
       let width = this.state.widths[colIndex];
       if (cell.hasOwnProperty('span')) {
         const span = cell.span;
-        if (span+colIndex <= this.props.columns.length) {
+        if (span + colIndex <= this.props.columns.length) {
           for (let i = 1; i < span; i++) {
-            width += this.state.widths[colIndex+i];
+            width += this.state.widths[colIndex + i];
           }
         }
       }
       return (
-          <Cell
-            {...cell}
-            key={colIndex}
-            index={colIndex}
-            customStyles={this.props.customStyles}
-            borderStyle={borderStyle}
-            height={this.props.cellHeight}
-            width={width}
-            input={columnInput}
-            column={colIndex}
-            row={rowIndex}
-            onCellChange={this.props.onCellChange}
-          />
-      );
-
-    }
-    return (
         <Cell
-          value={cell}
+          {...cell}
           key={colIndex}
           index={colIndex}
           customStyles={this.props.customStyles}
           borderStyle={borderStyle}
           height={this.props.cellHeight}
-          width={this.state.widths[colIndex]}
+          width={width}
           input={columnInput}
           column={colIndex}
           row={rowIndex}
+          onCellChange={this.props.onCellChange}
         />
+      );
+
+    }
+    return (
+      <Cell
+        value={cell}
+        key={colIndex}
+        index={colIndex}
+        customStyles={this.props.customStyles}
+        borderStyle={borderStyle}
+        height={this.props.cellHeight}
+        width={this.state.widths[colIndex]}
+        input={columnInput}
+        column={colIndex}
+        row={rowIndex}
+      />
     );
   }
 
   _createBorderStyles(i, length) {
     return {
-      borderRightWidth: (length-1 > i ? 0.5 : 0),
+      borderRightWidth: (length - 1 > i ? 0.5 : 0)
     };
   }
 
   _calculateCellWidths(widths) {
     const widthFlexs = [];
-    for(let i = 0; i < widths.length; i++){
+    for (let i = 0; i < widths.length; i++) {
       widthFlexs.push(widths.length * (widths[i] * 0.01));
     }
     return widthFlexs;
@@ -164,13 +162,13 @@ class EditableTable extends React.Component{
       <View style={[Style.container, style, {minHeight: cellHeight}]}>
         <ScrollView style={{flex: 1}}>
           <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS === 'ios' ? 'position' : 'padding'} enabled>
-            <View style={{flex: 1,flexDirection: 'column'}}>
+            <View style={{flex: 1, flexDirection: 'column'}}>
               <View style={[Style.row, customStyles.row]}>
                 {this.createColumns(columns)}
               </View>
               {this.createRows(values)}
             </View>
-        </KeyboardAvoidingView>
+          </KeyboardAvoidingView>
         </ScrollView>
       </View>
     );
