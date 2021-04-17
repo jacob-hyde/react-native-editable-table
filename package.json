@@ -25,7 +25,8 @@
     "url": "https://github.com/jacob-hyde/react-native-editable-table/issues"
   },
   "homepage": "https://github.com/jacob-hyde/react-native-editable-table#readme",
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.4"
   },
